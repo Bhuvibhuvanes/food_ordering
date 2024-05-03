@@ -31,7 +31,7 @@ import com.FoodOrderingSystem.service.CanteenManagerService;
 
 @ControllerAdvice
 @RestController
-@RequestMapping("/canteenManager")
+@RequestMapping("/foodmanager")
 @CrossOrigin(origins = "http://localhost:3000")
 public class CanteenManagerController {
 	@Autowired

@@ -30,7 +30,7 @@ import com.FoodOrderingSystem.model.UsersForm;
 import com.FoodOrderingSystem.repository.UsersFormRepo;
 
 @Service
-public class StudentFormService {
+public class UsersFormService {
 	@Autowired
 	UsersFormRepo studentRepo;
 

@@ -1,5 +1,6 @@
 package com.FoodOrderingSystem.Controller;
 
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -24,6 +25,7 @@ import com.FoodOrderingSystem.repository.CanteenManagerRepo;
 import com.FoodOrderingSystem.repository.UsersFormRepo;
 import com.FoodOrderingSystem.service.JwtService;
 
+
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 public class LoginController {
@@ -32,7 +34,7 @@ public class LoginController {
 	private JwtService jwtService;
 
 	@Autowired
-	private UsersFormRepo userFormRepo;
+	private UsersFormRepo usersFormRepo;
 
 	@Autowired
 	private CanteenManagerRepo canteenManagerRepo;
@@ -69,7 +71,7 @@ public class LoginController {
 	}
 
 	private Object getUserByEmail(String email) {
-		Optional<UsersForm> student = userFormRepo.findByEmail(email);
+		Optional<UsersForm> student = usersFormRepo.findByEmail(email);
 		if (student.isPresent()) {
 			return student.get();
 		}

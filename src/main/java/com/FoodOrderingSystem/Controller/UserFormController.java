@@ -34,7 +34,7 @@ import com.FoodOrderingSystem.model.NotFoundException;
 import com.FoodOrderingSystem.model.UsersForm;
 import com.FoodOrderingSystem.model.UsersFormResponse;
 import com.FoodOrderingSystem.repository.UsersFormRepo;
-import com.FoodOrderingSystem.service.StudentFormService;
+import com.FoodOrderingSystem.service.UsersFormService;
 
 @ControllerAdvice
 @RestController
@@ -42,7 +42,7 @@ import com.FoodOrderingSystem.service.StudentFormService;
 @CrossOrigin(origins = "http://localhost:3000")
 public class UserFormController {
 	@Autowired
-	StudentFormService studentService;
+	UsersFormService studentService;
 
 	@GetMapping("/{id}")
 	public ResponseEntity<UsersFormResponse> getStudentById(@PathVariable int id) {

@@ -23,9 +23,9 @@ public interface UsersFormRepo extends JpaRepository<UsersForm, Integer> {
 	Optional<StudentForm> findByStudentForm(Object user);*/
 	 List<UsersForm> findAll();
 
-	    UsersForm save(UsersForm student);
+	    UsersForm save(UsersForm users);
 	    
-	    @Query("SELECT s FROM UserForm s WHERE s.email = :email")
+//	    @Query("SELECT u FROM UsersForm u WHERE suemail = :email")
 	    Optional<UsersForm> findByEmail(@Param("email") String email);
 
 
