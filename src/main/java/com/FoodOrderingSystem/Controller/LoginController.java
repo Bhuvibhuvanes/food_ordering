@@ -19,9 +19,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.FoodOrderingSystem.dto.AuthRequest;
-import com.FoodOrderingSystem.model.CanteenManager;
+//import com.FoodOrderingSystem.model.CanteenManager;
 import com.FoodOrderingSystem.model.UsersForm;
-import com.FoodOrderingSystem.repository.CanteenManagerRepo;
+//import com.FoodOrderingSystem.repository.CanteenManagerRepo;
 import com.FoodOrderingSystem.repository.UsersFormRepo;
 import com.FoodOrderingSystem.service.JwtService;
 
@@ -36,8 +36,8 @@ public class LoginController {
 	@Autowired
 	private UsersFormRepo usersFormRepo;
 
-	@Autowired
-	private CanteenManagerRepo canteenManagerRepo;
+//	@Autowired
+//	private CanteenManagerRepo canteenManagerRepo;
 
 	@Autowired
 	private AuthenticationManager authenticationManager;
@@ -76,10 +76,10 @@ public class LoginController {
 			return student.get();
 		}
 
-		Optional<CanteenManager> canteenManager = canteenManagerRepo.findByEmail(email);
-		if (canteenManager.isPresent()) {
-			return canteenManager.get();
-		}
+//		Optional<CanteenManager> canteenManager = canteenManagerRepo.findByEmail(email);
+//		if (canteenManager.isPresent()) {
+//			return canteenManager.get();
+//		}
 
 		throw new UsernameNotFoundException("User not found");
 	}
@@ -87,15 +87,18 @@ public class LoginController {
 	private String determineRole(Object user) {
 		if (user instanceof UsersForm) {
 			System.out.println("Student   :");
-			return "STUDENT";
-		} else if (user instanceof CanteenManager) {
-			 CanteenManager manager = (CanteenManager) user;
-		        if(manager.getRole().equals("MANAGER")) {
-		            return "MANAGER";
-		        } else {
-		            return "ADMIN";
-		        }
-		} else {
+			return "ADMIN";
+		} 
+//		else if (user instanceof CanteenManager) {
+//			 CanteenManager manager = (CanteenManager) user;
+//		        if(manager.getRole().equals("MANAGER")) {
+//		            return "MANAGER";
+//		        } 
+//		else {
+//		            return "ADMIN";
+//		        }
+//		} 
+	else {
 			throw new IllegalArgumentException("Invalid user type");
 		}
 	}
@@ -103,9 +106,11 @@ public class LoginController {
 	private int getIdFromUser(Object user) {
 		if (user instanceof UsersForm) {
 			return ((UsersForm) user).getStudent_id();
-		} else if (user instanceof CanteenManager) {
-			return ((CanteenManager) user).getId();
-		} else {
+		} 
+//		else if (user instanceof CanteenManager) {
+//			return ((CanteenManager) user).getId();
+//		} 
+	else {
 			throw new IllegalArgumentException("Invalid user type");
 		}
 	}

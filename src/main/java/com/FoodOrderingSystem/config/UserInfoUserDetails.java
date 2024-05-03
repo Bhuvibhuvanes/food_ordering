@@ -4,7 +4,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.FoodOrderingSystem.model.CanteenManager;
+//import com.FoodOrderingSystem.model.CanteenManager;
 import com.FoodOrderingSystem.model.UsersForm;
 
 import java.util.Arrays;
@@ -88,12 +88,12 @@ public class UserInfoUserDetails implements UserDetails {
 		}
 	}
 
-	public UserInfoUserDetails(CanteenManager canteenManager) {
-		this.username = canteenManager.getEmail();
-		this.password = canteenManager.getPassword();
-		this.authorities = new ArrayList<>();
-		authorities.add(new SimpleGrantedAuthority("ROLE_CANTEEN_MANAGER"));
-	}
+//	public UserInfoUserDetails(CanteenManager canteenManager) {
+//		this.username = canteenManager.getEmail();
+//		this.password = canteenManager.getPassword();
+//		this.authorities = new ArrayList<>();
+//		authorities.add(new SimpleGrantedAuthority("ROLE_CANTEEN_MANAGER"));
+//	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {

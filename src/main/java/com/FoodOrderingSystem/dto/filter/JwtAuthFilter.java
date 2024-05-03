@@ -12,9 +12,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.FoodOrderingSystem.config.UserInfoUserDetailsService;
-import com.FoodOrderingSystem.model.CanteenManager;
+//import com.FoodOrderingSystem.model.CanteenManager;
 import com.FoodOrderingSystem.model.UsersForm;
-import com.FoodOrderingSystem.repository.CanteenManagerRepo;
+//import com.FoodOrderingSystem.repository.CanteenManagerRepo;
 import com.FoodOrderingSystem.repository.UsersFormRepo;
 import com.FoodOrderingSystem.repository.UserInfoRepository;
 import com.FoodOrderingSystem.service.JwtService;
@@ -61,9 +61,11 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 		UserDetails userDetails;
 		if (user instanceof UsersForm) {
 			userDetails = userDetailsService.loadUserByUsername(((UsersForm) user).getEmail());
-		} else if (user instanceof CanteenManager) {
-			userDetails = userDetailsService.loadUserByUsername(((CanteenManager) user).getEmail());
-		} else {
+		} 
+//		else if (user instanceof CanteenManager) {
+//			userDetails = userDetailsService.loadUserByUsername(((CanteenManager) user).getEmail());
+//		} 
+		else {
 			throw new IllegalArgumentException("Unsupported user type: " + user.getClass().getName());
 		}
 

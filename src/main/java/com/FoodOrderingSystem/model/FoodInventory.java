@@ -55,10 +55,10 @@ public class FoodInventory {
 		this.photoBase64 = photoBase64;
 	}
 
-	@ManyToOne
-	@JoinColumn(name = "canteenManager_id") // Assuming the foreign key column name
-//    @JsonBackReference // Mark as "back" side of relationship
-	private CanteenManager canteenManager;
+//	@ManyToOne
+//	@JoinColumn(name = "canteenManager_id") // Assuming the foreign key column name
+////    @JsonBackReference // Mark as "back" side of relationship
+//	private CanteenManager canteenManager;
 
 	public FoodInventory(int food_id, String name, int amount, boolean isAvailability, boolean breakfast, boolean lunch,
 			boolean eveningfood, boolean dinner, boolean alltime, int quantity, Blob photo) {
@@ -201,13 +201,13 @@ public class FoodInventory {
 		this.purchaseOrders = purchaseOrders;
 	}
 
-	public CanteenManager getCanteenManager() {
-		return canteenManager;
-	}
-
-	public void setCanteenManager(CanteenManager canteenManager) {
-		this.canteenManager = canteenManager;
-	}
+//	public CanteenManager getCanteenManager() {
+//		return canteenManager;
+//	}
+//
+//	public void setCanteenManager(CanteenManager canteenManager) {
+//		this.canteenManager = canteenManager;
+//	}
 
 	@Override
 	public String toString() {
@@ -215,7 +215,8 @@ public class FoodInventory {
 				+ isAvailability + ", breakfast=" + breakfast + ", lunch=" + lunch + ", eveningfood=" + eveningfood
 				+ ", dinner=" + dinner + ", alltime=" + alltime + ", quantity=" + quantity + ", photo=" + photo
 				+ ", image=" + image + ", photoBase64=" + photoBase64 + ", purchaseOrders=" + purchaseOrders
-				+ ", canteenManager=" + canteenManager + "]";
+//				+ ", canteenManager=" + canteenManager + 
+				+"]";
 	}
 
 }

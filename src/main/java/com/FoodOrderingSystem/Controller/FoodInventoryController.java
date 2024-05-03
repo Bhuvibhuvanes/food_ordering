@@ -35,9 +35,15 @@ import com.FoodOrderingSystem.repository.FoodInventoryRepo;
 import com.FoodOrderingSystem.repository.PurchaseOrderRepo;
 import com.FoodOrderingSystem.service.FoodInventoryService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.AllArgsConstructor;
+
 @ControllerAdvice
 @RestController
-@RequestMapping("/foodInventory")
+@RequestMapping("/restAPI")
+@AllArgsConstructor
+@Tag(name="foodInventory",description = "To perform operation on foods oerders")
 @CrossOrigin(origins = "http://localhost:3000")
 public class FoodInventoryController {
 
@@ -95,7 +101,9 @@ public class FoodInventoryController {
 			return ResponseEntity.notFound().build();
 		}
 	}
-
+	@Operation(
+		summary = "Post Operation",
+		description = "used to save data")
 	@PostMapping
 	public ResponseEntity<FoodInventory> addFood(@RequestParam("file") MultipartFile file,
 			@RequestParam("name") String name, @RequestParam("amount") int amount,
